@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Anonymous - Javascipt</title>
+    <script src="functionAnonymous.js"></script>
+</head>
+
+<body>
+    <button id="calculated">Kalkulasi</button>
+    <script>
+        // membuat variabel btn untuk menangkap menggunakan id
+        let btn = document.getElementById("calculated");
+        // memubuat event listener untuk di klik serta menggunakan function anonymous 
+        btn.addEventListener("click", function () {
+            // membuat variabel angka1 untuk melakukan input angka yang diinginkan 
+            let angka1 = parseInt(prompt("Enter first number:"));
+            // membuat variabel angka2 untuk melakukan input angka yang diinginkan
+            let angka2 = parseInt(prompt("Enter second number:"));
+
+            // membuat variabel sisa untuk melakukan function anonymous yang didalamnya ada parameter a dan b
+            let sisa = (function (a, b) {
+                // jika a lebih besar dari b maka dilakukan operasi pengurangan
+                if (a > b) {
+                    return a - b;
+                // jika a lebih kecil dari b maka dilakukan operasi pertambahan
+                } else if (a < b){
+                    return a + b;
+                // jika a sama dengan b maka dilakukan operasi perkalian
+                } else if (a === b) {
+                    return a * b;
+                // selain itu maka operasi tersebut tidak ada
+                } else {
+                    return "Operasi tidak ada!";
+                }
+            })
+            // memanggil variabel angka1 dan angka2 untuk melakukan operasi arimatika
+            (angka1, angka2);
+            // menampilkan hasil tersebut di console
+            console.log(sisa);
+        });
+    </script>
+</body>
+</html>
